@@ -76,6 +76,13 @@
       image: "/images/beautyproduct.jpg",
       Live_link: "https://expense-tracker-lemon-psi.vercel.app/",
     },
+    {
+      id: 4,
+      title: "A Beauty-Product App build with Nextjs,tanstck query,typescript and Zustand",
+      description: "Authentication made with zustand,user can add,update and delete products.",
+      image: "/images/beautyproduct.jpg",
+      Live_link: "https://expense-tracker-lemon-psi.vercel.app/",
+    },
    
   ];
   

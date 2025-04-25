@@ -27,6 +27,28 @@ const validationSchema = Yup.object().shape({
 
 type FormData = Yup.InferType<typeof validationSchema>;
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.3,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  },
+};
+
 export default function ContactSection() {
   const {
     control,
@@ -42,229 +64,6 @@ export default function ContactSection() {
   };
 
   return (
-    // <Container maxWidth="lg">
-    //   <Box my={10}>
-    //     <Grid container spacing={6} alignItems="center" justifyContent="center">
-    //       {/* Left Section – Get In Touch Form */}
-    //       <Grid item xs={12} md={6}>
-    //         <motion.div
-    //           initial={{ opacity: 0, x: -100 }}
-    //           whileInView={{ opacity: 1, x: 0 }}
-    //           transition={{ duration: 0.8 }}
-    //           viewport={{ once: true }}
-    //         >
-    //           <Paper
-    //             sx={{
-    //               p: 3,
-    //               background: "linear-gradient(135deg,rgb(62, 63, 66) 0%,rgb(63, 63, 63) 100%)",
-    //               borderRadius: "20px",
-    //               color: "white",
-    //               boxShadow: 6,
-    //               width: "100%",
-    //               maxWidth: "500px",
-    //               margin: "0 auto",
-    //             }}
-    //           >
-    //             <Typography variant="h4" gutterBottom textAlign="center" fontWeight="bold">
-    //               Get In Touch
-    //             </Typography>
-
-    //             <Box component="form" onSubmit={handleSubmit(onSubmit)} noValidate>
-    //               <Controller
-    //                 name="name"
-    //                 control={control}
-    //                 render={({ field }) => (
-    //                   <TextField
-    //                     {...field}
-    //                     fullWidth
-    //                     label="Name"
-    //                     margin="normal"
-    //                     error={!!errors.name}
-    //                     helperText={errors.name?.message}
-    //                     sx={{
-    //                       "& .MuiInputLabel-root": { color: "white" },
-    //                       "& .MuiInputBase-input": { color: "white" },
-    //                       "& .MuiOutlinedInput-notchedOutline": { borderColor: "white" },
-    //                     }}
-    //                   />
-    //                 )}
-    //               />
-
-    //               <Controller
-    //                 name="email"
-    //                 control={control}
-    //                 render={({ field }) => (
-    //                   <TextField
-    //                     {...field}
-    //                     fullWidth
-    //                     label="Email"
-    //                     margin="normal"
-    //                     error={!!errors.email}
-    //                     helperText={errors.email?.message}
-    //                     sx={{
-    //                       "& .MuiInputLabel-root": { color: "white" },
-    //                       "& .MuiInputBase-input": { color: "white" },
-    //                       "& .MuiOutlinedInput-notchedOutline": { borderColor: "white" },
-    //                     }}
-    //                   />
-    //                 )}
-    //               />
-
-    //               <Controller
-    //                 name="message"
-    //                 control={control}
-    //                 render={({ field }) => (
-    //                   <TextField
-    //                     {...field}
-    //                     fullWidth
-    //                     label="Message"
-    //                     multiline
-    //                     rows={4}
-    //                     margin="normal"
-    //                     error={!!errors.message}
-    //                     helperText={errors.message?.message}
-    //                     sx={{
-    //                       "& .MuiInputLabel-root": { color: "white" },
-    //                       "& .MuiInputBase-input": { color: "white" },
-    //                       "& .MuiOutlinedInput-notchedOutline": { borderColor: "white" },
-    //                     }}
-    //                   />
-    //                 )}
-    //               />
-
-    //               <Button
-    //                 type="submit"
-    //                 variant="contained"
-    //                 fullWidth
-    //                 sx={{
-    //                   mt: 2,
-    //                   backgroundColor: "#64b5f6",
-    //                   fontWeight: "bold",
-    //                   "&:hover": {
-    //                     backgroundColor: "#f50057",
-    //                   },
-    //                 }}
-    //               >
-    //                 Send Message
-    //               </Button>
-    //             </Box>
-    //           </Paper>
-    //         </motion.div>
-    //       </Grid>
-
-    //       {/* Right Section – Contact Details */}
-    //       <Grid item xs={12} md={6}>
-    //         <motion.div
-    //           initial={{ opacity: 0, x: 100 }}
-    //           whileInView={{ opacity: 1, x: 0 }}
-    //           transition={{ duration: 0.8 }}
-    //           viewport={{ once: true }}
-    //         >
-    //           <Paper
-    //             elevation={3}
-    //             sx={{
-    //               p: 5,
-    //               borderRadius: "30px",
-    //               backgroundColor: "#fff8e1",
-    //               textAlign: "center",
-    //               boxShadow: "0 8px 32px 0 rgba(16, 15, 15, 0.6)",
-    //             }}
-    //           >
-    //             <Typography
-    //               variant="h5"
-    //               gutterBottom
-    //               fontWeight="bold"
-    //               color="#0d47a1"
-    //               marginBottom="30px"
-    //             >
-    //               Contact With Me
-    //             </Typography>
-
-    //             <Stack direction="row" alignItems="center" spacing={2} mb={3} justifyContent="center">
-    //               <Box
-    //                 sx={{
-    //                   backgroundColor: "#1976d2",
-    //                   color: "white",
-    //                   p: 1,
-    //                   borderRadius: "50%",
-    //                   display: "flex",
-    //                   alignItems: "center",
-    //                 }}
-    //               >
-    //                 <PhoneIcon />
-    //               </Box>
-    //               <Typography variant="body1" color="#000" fontWeight="bold">
-    //                 +91 9830312150
-    //               </Typography>
-    //             </Stack>
-
-    //             <Stack direction="row" alignItems="center" spacing={2} mb={3} justifyContent="center">
-    //               <Box
-    //                 sx={{
-    //                   backgroundColor: "#1976d2",
-    //                   color: "white",
-    //                   p: 1,
-    //                   borderRadius: "50%",
-    //                   display: "flex",
-    //                   alignItems: "center",
-    //                 }}
-    //               >
-    //                 <EmailIcon />
-    //               </Box>
-    //               <Typography variant="body1" color="#000" fontWeight="bold">
-    //                 tanimateach1982@gmail.com
-    //               </Typography>
-    //             </Stack>
-
-    //             <Stack direction="row" alignItems="center" spacing={2} justifyContent="center">
-    //               <Box
-    //                 sx={{
-    //                   backgroundColor: "#1976d2",
-    //                   color: "white",
-    //                   p: 1,
-    //                   borderRadius: "50%",
-    //                   display: "flex",
-    //                   alignItems: "center",
-    //                 }}
-    //               >
-    //                 <LocationOnIcon />
-    //               </Box>
-    //               <Typography variant="body1" color="#000" fontWeight="bold">
-    //                 Kolkata ,West Bengal
-    //               </Typography>
-    //             </Stack>
-    //           </Paper>
-
-    //           {/* Download CV Button */}
-    //           <Box mt={5} textAlign="center">
-    //             <Button
-    //               variant="contained"
-    //               startIcon={<DownloadIcon />}
-    //               href="/my_resume/cv_of_Tanima.pdf"
-    //               download
-    //               sx={{
-    //                 fontWeight: "bold",
-    //                 backgroundColor: "#ff7043",
-    //                 color: "#000",
-    //                 px: 5,
-    //                 py: 1.5,
-    //                 fontSize: "1rem",
-    //                 borderRadius: "12px",
-    //                 "&:hover": {
-    //                   backgroundColor: "#1976d2",
-    //                   color: "white",
-    //                 },
-    //               }}
-    //             >
-    //               Download CV
-    //             </Button>
-    //           </Box>
-    //         </motion.div>
-    //       </Grid>
-    //     </Grid>
-    //   </Box>
-    // </Container>
-
     <Container maxWidth="lg">
       <Box
         my={10}
@@ -286,7 +85,7 @@ export default function ContactSection() {
             sx={{
               p: 3,
               background:
-                "linear-gradient(135deg, rgb(62, 63, 66) 0%, rgb(63, 63, 63) 100%)",
+                "linear-gradient(135deg, rgb(109, 119, 146) 0%, rgb(116, 93, 93) 100%)",
               borderRadius: "20px",
               color: "white",
               boxShadow: 6,
@@ -402,123 +201,149 @@ export default function ContactSection() {
           <Paper
             elevation={3}
             sx={{
-              p: 5,
-              borderRadius: "30px",
-              backgroundColor: "#fff8e1",
-              textAlign: "center",
-              boxShadow: "0 8px 32px 0 rgba(16, 15, 15, 0.6)",
-              width: "400px",
+              borderRadius: "16px",
+              padding: "40px",
+              margin: "auto",
+              background: "#f3e5f5",
             }}
           >
-            <Typography
-              variant="h5"
-              gutterBottom
-              fontWeight="bold"
-              color="#0d47a1"
-              marginBottom="30px"
-            >
-              Contact With Me
-            </Typography>
-
-            {/* Phone */}
-            <Stack
-              direction="row"
-              alignItems="center"
-              spacing={2}
-              mb={3}
-              justifyContent="center"
-            >
-              <Box
-                sx={{
-                  backgroundColor: "#1976d2",
-                  color: "white",
-                  p: 1,
-                  borderRadius: "50%",
-                  display: "flex",
-                  alignItems: "center",
-                }}
-              >
-                <PhoneIcon />
-              </Box>
-              <Typography variant="body1" color="#000" fontWeight="bold">
-                +91 9830312150
-              </Typography>
-            </Stack>
-
-            {/* Email */}
-            <Stack
-              direction="row"
-              alignItems="center"
-              spacing={2}
-              mb={3}
-              justifyContent="center"
-            >
-              <Box
-                sx={{
-                  backgroundColor: "#1976d2",
-                  color: "white",
-                  p: 1,
-                  borderRadius: "50%",
-                  display: "flex",
-                  alignItems: "center",
-                }}
-              >
-                <EmailIcon />
-              </Box>
-              <Typography variant="body1" color="#000" fontWeight="bold">
-                tanimateach1982@gmail.com
-              </Typography>
-            </Stack>
-
-            {/* Location */}
-            <Stack
-              direction="row"
-              alignItems="center"
-              spacing={2}
-              justifyContent="center"
-            >
-              <Box
-                sx={{
-                  backgroundColor: "#1976d2",
-                  color: "white",
-                  p: 1,
-                  borderRadius: "50%",
-                  display: "flex",
-                  alignItems: "center",
-                }}
-              >
-                <LocationOnIcon />
-              </Box>
-              <Typography variant="body1" color="#000" fontWeight="bold">
-                Kolkata, West Bengal
-              </Typography>
-            </Stack>
-          </Paper>
-
-          {/* Download CV */}
-          <Box mt={5} display="flex" justifyContent="center">
-            <Button
-              variant="contained"
-              startIcon={<DownloadIcon />}
-              href="/my_resume/cv_of_Tanima_new.pdf"
-              download
-              sx={{
-                fontWeight: "bold",
-                backgroundColor: "#ff7043",
-                color: "#000",
-                px: 5,
-                py: 1.5,
-                fontSize: "1rem",
-                borderRadius: "12px",
-                "&:hover": {
-                  backgroundColor: "#1976d2",
-                  color: "white",
-                },
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                textAlign: "center",
               }}
             >
-              Download CV
-            </Button>
-          </Box>
+              {/* Title */}
+              <motion.div variants={itemVariants}>
+                <Typography
+                  variant="h4"
+                  gutterBottom
+                  fontWeight="bold"
+                  color="#000"
+                  mb={4}
+                  sx={{
+                    fontFamily: "Raleway, sans-serif",
+                    letterSpacing: 1,
+                  }}
+                >
+                  Let’s Connect
+                </Typography>
+              </motion.div>
+
+              {/* Phone */}
+              <motion.div variants={itemVariants}>
+                <Stack
+                  direction="row"
+                  alignItems="center"
+                  spacing={2}
+                  mb={3}
+                  justifyContent="center"
+                >
+                  <Box
+                    sx={{
+                      backgroundColor: "#1976d2",
+                      color: "white",
+                      p: 1,
+                      borderRadius: "50%",
+                      display: "flex",
+                      alignItems: "center",
+                    }}
+                  >
+                    <PhoneIcon />
+                  </Box>
+                  <Typography variant="body1" color="#000" fontWeight="bold">
+                    +91 9830312150
+                  </Typography>
+                </Stack>
+              </motion.div>
+
+              {/* Email */}
+              <motion.div variants={itemVariants}>
+                <Stack
+                  direction="row"
+                  alignItems="center"
+                  spacing={2}
+                  mb={3}
+                  justifyContent="center"
+                >
+                  <Box
+                    sx={{
+                      backgroundColor: "#1976d2",
+                      color: "white",
+                      p: 1,
+                      borderRadius: "50%",
+                      display: "flex",
+                      alignItems: "center",
+                    }}
+                  >
+                    <EmailIcon />
+                  </Box>
+                  <Typography variant="body1" color="#000" fontWeight="bold">
+                    tanimateach1982@gmail.com
+                  </Typography>
+                </Stack>
+              </motion.div>
+
+              {/* Location */}
+              <motion.div variants={itemVariants}>
+                <Stack
+                  direction="row"
+                  alignItems="center"
+                  spacing={2}
+                  justifyContent="center"
+                >
+                  <Box
+                    sx={{
+                      backgroundColor: "#1976d2",
+                      color: "white",
+                      p: 1,
+                      borderRadius: "50%",
+                      display: "flex",
+                      alignItems: "center",
+                    }}
+                  >
+                    <LocationOnIcon />
+                  </Box>
+                  <Typography variant="body1" color="#000" fontWeight="bold">
+                    Kolkata, West Bengal
+                  </Typography>
+                </Stack>
+              </motion.div>
+
+              {/* Download Button */}
+              <motion.div variants={itemVariants}>
+                <Box mt={5}>
+                  <Button
+                    variant="contained"
+                    startIcon={<DownloadIcon />}
+                    href="/my_resume/cv_of_Tanima_new.pdf"
+                    download
+                    sx={{
+                      fontWeight: "bold",
+                      backgroundColor: "#ff7043",
+                      color: "#000",
+                      px: 5,
+                      py: 1.5,
+                      fontSize: "1rem",
+                      borderRadius: "12px",
+                      border: "2px solid rgb(34, 35, 36)",
+                      "&:hover": {
+                        backgroundColor: "#1976d2",
+                        color: "white",
+                      },
+                    }}
+                  >
+                    Download CV
+                  </Button>
+                </Box>
+              </motion.div>
+            </motion.div>
+          </Paper>
         </motion.div>
       </Box>
     </Container>

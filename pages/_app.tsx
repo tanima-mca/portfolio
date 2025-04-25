@@ -36,6 +36,7 @@ import { getTheme } from '@/theme/theme';
 import { useMemo } from 'react';
 import type { AppProps } from 'next/app';
 import { useThemeStore } from '@/store/themestore';
+import "@fontsource/raleway";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const mode = useThemeStore((state) => state.mode);
