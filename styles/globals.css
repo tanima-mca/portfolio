@@ -1,4 +1,4 @@
-:root {
+/* :root {
   --background: #ffffff;
   --foreground: #171717;
 }
@@ -39,4 +39,17 @@ a {
   html {
     color-scheme: dark;
   }
+} */
+
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #121212;
+  color: white;
+}  
+html {
+  scroll-behavior: smooth;
 }
+
