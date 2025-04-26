@@ -135,7 +135,7 @@ export default function Home() {
         sx={{
           display: "flex",
           flexDirection: "column",
-          alignItems: "center", // Center align all child items horizontally
+          justifyContent:"center",
           width: "100%",
           paddingX: { xs: 2, md: 4 }, // responsive horizontal padding
         }}
