@@ -55,7 +55,7 @@ export default function ContactSection() {
   const {
     control,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm<FormData>({
     resolver: yupResolver(validationSchema),
   });
@@ -180,15 +180,17 @@ export default function ContactSection() {
                 type="submit"
                 variant="contained"
                 fullWidth
+                disabled={isSubmitting}
                 sx={{
                   mt: 3,
                   py: 1.5,
                   fontWeight: "bold",
                   backgroundColor: "#64b5f6",
                   "&:hover": { backgroundColor: "#f50057" },
+                  "&:disabled": { backgroundColor: "#90caf9" },
                 }}
               >
-                Send Message
+                {isSubmitting ? "Sending..." : "Send Message"}
               </Button>
             </Box>
           </Paper>
@@ -258,7 +260,7 @@ export default function ContactSection() {
                   >
                     <PhoneIcon />
                   </Box>
-                  <Typography variant="body1" fontWeight="bold">
+                  <Typography variant="body1" fontWeight="bold" fontSize="25px">
                     +91 9830312150
                   </Typography>
                 </Stack>
@@ -284,7 +286,7 @@ export default function ContactSection() {
                   >
                     <EmailIcon />
                   </Box>
-                  <Typography variant="body1" fontWeight="bold">
+                  <Typography variant="body1" fontWeight="bold" fontSize="25px">
                     tanimateach1982@gmail.com
                   </Typography>
                 </Stack>
@@ -310,7 +312,7 @@ export default function ContactSection() {
                   >
                     <LocationOnIcon />
                   </Box>
-                  <Typography variant="body1" fontWeight="bold">
+                  <Typography variant="body1" fontWeight="bold" fontSize="25px">
                     Kolkata, West Bengal
                   </Typography>
                 </Stack>
@@ -319,7 +321,7 @@ export default function ContactSection() {
               {/* Download CV Button */}
               <motion.div variants={itemVariants}>
                 <Box mt={4} textAlign="center">
-                  <Button
+                  {/* <Button
                     variant="contained"
                     startIcon={<DownloadIcon />}
                     href="/my_resume/cv_of_Tanima_new.pdf"
@@ -338,6 +340,19 @@ export default function ContactSection() {
                         color: "white",
                       },
                     }}
+                  >
+                    Download CV
+                  </Button> */}
+                  <Button
+                    variant="contained"
+                    startIcon={<DownloadIcon />}
+                    sx={{fontWeight:"bold" ,backgroundColor: "#42a5f5",px: 5,
+                      py: 1.5,
+                      fontSize: "1rem",
+                      borderRadius: "12px",}}
+                    aria-label="Download CV"
+                    href="/my_resume/cv_of_Tanima_new.pdf"
+                    download
                   >
                     Download CV
                   </Button>

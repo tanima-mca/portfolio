@@ -26,7 +26,18 @@ const Hero = () => {
   const intro = "Hi! I am Tanima, a Frontend Developer";
 
   return (
-    <Box mt={8} mb={4} textAlign="center">
+      <Box
+        mt={8}
+        mb={4}
+        sx={{
+          display: "flex",           // ✅
+          flexDirection: "column",   // ✅
+          alignItems: "center",       // ✅
+          justifyContent: "center",  // ✅
+          textAlign: "center",        // ✅
+          px: 2,                     // ✅ Responsive padding
+        }}
+      >
       <motion.div
         variants={container}
         initial="hidden"

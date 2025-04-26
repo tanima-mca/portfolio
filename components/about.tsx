@@ -12,7 +12,17 @@ const About = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
-    <Box my={6} textAlign="center" px={2}>
+    <Box
+    my={6}
+    textAlign="center"
+    sx={{
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
+      px: 2,
+    }}
+  >
       <Avatar
         src="/images/profilepic.jpg"
         sx={{
