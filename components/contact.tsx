@@ -260,7 +260,7 @@ export default function ContactSection() {
                   >
                     <PhoneIcon />
                   </Box>
-                  <Typography variant="body1" fontWeight="bold" fontSize="25px">
+                  <Typography variant="body1" fontWeight="bold">
                     +91 9830312150
                   </Typography>
                 </Stack>
@@ -286,7 +286,7 @@ export default function ContactSection() {
                   >
                     <EmailIcon />
                   </Box>
-                  <Typography variant="body1" fontWeight="bold" fontSize="25px">
+                  <Typography variant="body1" fontWeight="bold" >
                     tanimateach1982@gmail.com
                   </Typography>
                 </Stack>
@@ -312,7 +312,7 @@ export default function ContactSection() {
                   >
                     <LocationOnIcon />
                   </Box>
-                  <Typography variant="body1" fontWeight="bold" fontSize="25px">
+                  <Typography variant="body1" fontWeight="bold" >
                     Kolkata, West Bengal
                   </Typography>
                 </Stack>
