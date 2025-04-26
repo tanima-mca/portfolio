@@ -10,7 +10,10 @@ type ThemeToggleProps = {
 
 export default function ThemeToggle({ toggleTheme, currentMode }: ThemeToggleProps) {
   return (
-    <IconButton onClick={toggleTheme} color="inherit">
+    <IconButton onClick={toggleTheme} color="inherit"
+    sx={{
+      color: currentMode === 'dark' ? '#fff' : '#000', // Change icon color based on the mode
+    }}>
       {currentMode === 'light' ? <DarkModeIcon /> : <LightModeIcon />}
     </IconButton>
   );

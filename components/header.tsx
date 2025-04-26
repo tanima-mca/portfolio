@@ -122,8 +122,6 @@
 //   );
 // }
 
-
-
 // /components/header.tsx
 import {
   AppBar,
@@ -139,26 +137,25 @@ import {
   useTheme,
   ListItemButton,
   Divider,
-} from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
-import { useState } from 'react';
-import ThemeToggle from './themetoggle';
-import { useThemeStore } from '@/store/themestore';
-
+} from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+import { useState } from "react";
+import ThemeToggle from "./themetoggle";
+import { useThemeStore } from "@/store/themestore";
 
 export default function Header() {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   const { mode, toggleTheme } = useThemeStore();
 
   const navLinks = [
-    { label: 'Home', href: '#home' },
-    { label: 'About', href: '#about' },
-    { label: 'Projects', href: '#projects' },
-    { label: 'Skills', href: '#skills' },
-    { label: 'Contact', href: '#contact' },
+    { label: "Home", href: "#home" },
+    { label: "About", href: "#about" },
+    { label: "Projects", href: "#projects" },
+    { label: "Skills", href: "#skills" },
+    { label: "Contact", href: "#contact" },
   ];
 
   return (
@@ -167,17 +164,17 @@ export default function Header() {
         position="fixed"
         elevation={1}
         sx={{
-          background: 'rgba(14, 14, 14, 0.3)',
-          backdropFilter: 'blur(6px)',
-          color: '#333',
-          borderBottom: '1px solid #e0e0e0',
+          background: "rgba(14, 14, 14, 0.3)",
+          backdropFilter: "blur(6px)",
+          color: "#333",
+          borderBottom: "1px solid #e0e0e0",
         }}
       >
         <Toolbar>
           <Typography
             variant="h6"
             component="div"
-            sx={{ flexGrow: 1, fontWeight: 600, color: '#fff' }}
+            sx={{ flexGrow: 1, fontWeight: 600, color: "#fff" }}
           >
             My Portfolio
           </Typography>
@@ -185,11 +182,10 @@ export default function Header() {
           {isMobile ? (
             <IconButton
               edge="end"
-              color="inherit"
               aria-label="menu"
               onClick={() => setDrawerOpen(true)}
             >
-              <MenuIcon />
+              <MenuIcon sx={{ color: '#fff' }} />
             </IconButton>
           ) : (
             <Box>
@@ -198,19 +194,20 @@ export default function Header() {
                   key={link.label}
                   href={link.href}
                   sx={{
-                    color: link.label === 'Contact' ? '#000' : '#fff',
-                    backgroundColor: link.label === 'Contact' ? '#ffccbc' : 'transparent',
-                    fontWeight: 'bold',
-                    fontSize: '1rem',
+                    color: link.label === "Contact" ? "#000" : "#fff",
+                    backgroundColor:
+                      link.label === "Contact" ? "#ffccbc" : "transparent",
+                    fontWeight: "bold",
+                    fontSize: "1rem",
                     fontFamily: "'Poppins', sans-serif",
-                    textTransform: 'none',
-                    px: link.label === 'Contact' ? 2 : 0,
-                    borderRadius: link.label === 'Contact' ? 2 : 0,
-                    transition: '0.3s',
+                    textTransform: "none",
+                    px: link.label === "Contact" ? 2 : 0,
+                    borderRadius: link.label === "Contact" ? 2 : 0,
+                    transition: "0.3s",
                     ml: 1,
-                    '&:hover': {
+                    "&:hover": {
                       backgroundColor:
-                        link.label === 'Contact' ? '#1565c0' : 'transparent',
+                        link.label === "Contact" ? "#1565c0" : "transparent",
                     },
                   }}
                 >
@@ -224,7 +221,17 @@ export default function Header() {
       </AppBar>
 
       {/* Mobile Drawer */}
-      <Drawer anchor="right" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
+      <Drawer
+        anchor="right"
+        open={drawerOpen}
+        onClose={() => setDrawerOpen(false)}
+        ModalProps={{
+          keepMounted: true, // Better open performance on mobile.
+        }}
+        PaperProps={{
+          sx: { width: 250 },
+        }}
+      >
         <Box sx={{ width: 200 }}>
           <List>
             {navLinks.map((link) => (
@@ -239,7 +246,7 @@ export default function Header() {
             ))}
           </List>
           <Divider />
-          <Box sx={{ display: 'flex', justifyContent: 'center', p: 1 }}>
+          <Box sx={{ display: "flex", justifyContent: "center", p: 1 }}>
             <ThemeToggle toggleTheme={toggleTheme} currentMode={mode} />
           </Box>
         </Box>

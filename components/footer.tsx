@@ -15,11 +15,16 @@ export default function Footer() {
         textAlign: "center",
       }}
     >
-      <Typography variant="h6" gutterBottom fontWeight="bold" fontSize='25px'>
+      <Typography variant="h6" gutterBottom fontWeight="bold" fontSize="25px">
         Connect with me
       </Typography>
 
-      <Stack direction="row" justifyContent="center" spacing={3} mb={2}>
+      <Stack
+        direction={{ xs: "column", sm: "row" }}
+        justifyContent="center"
+        spacing={3}
+        mb={2}
+      >
         <IconButton
           href="https://github.com/tanima-mca"
           target="_blank"

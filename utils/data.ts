@@ -76,14 +76,6 @@
       image: "/images/beautyproduct.jpg",
       Live_link: "https://expense-tracker-lemon-psi.vercel.app/",
     },
-    {
-      id: 4,
-      title: "My Beautiful Portfolio website build with nextjs,typescript,zustand and MUI",
-      description: "A fully responsive and informative website ",
-      image: "/images/portfolio.webp",
-      Live_link: "https://portfolio-web-mu-gold.vercel.app/",
-    },
-   
   ];
   
   export const skillsList = [

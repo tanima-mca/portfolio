@@ -1,5 +1,5 @@
-import { Typography, Box } from '@mui/material';
-import { motion } from 'framer-motion';
+import { Typography, Box } from "@mui/material";
+import { motion } from "framer-motion";
 
 const container = {
   hidden: { opacity: 0 },
@@ -15,7 +15,7 @@ const child = {
     opacity: 1,
     y: 0,
     transition: {
-      type: 'spring',
+      type: "spring",
       damping: 12,
       stiffness: 100,
     },
@@ -32,19 +32,20 @@ const Hero = () => {
         initial="hidden"
         animate="visible"
         style={{
-          display: 'inline-flex',
-          flexWrap: 'wrap',
-          justifyContent: 'center',
+          display: "inline-flex",
+          flexWrap: "wrap",
+          justifyContent: "center",
         }}
       >
-        {intro.split('').map((char, index) => (
+        {intro.split("").map((char, index) => (
           <motion.span
             key={index}
             variants={child}
             style={{
-              fontSize: '3rem',
+              fontSize: "clamp(1.5rem, 5vw, 3rem)", // ✅ responsive font size
               fontFamily: "'Dancing Script', cursive",
-              marginRight: char === ' ' ? '0.5rem' : 0,
+              marginRight: char === " " ? "0.5rem" : 0,
+              wordBreak: "break-word",
             }}
           >
             {char}

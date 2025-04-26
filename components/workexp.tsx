@@ -1,13 +1,10 @@
-// components/WorkExp.tsx
-
 import React from "react";
-import { Box, Typography, Card, CardContent, Divider,Container } from "@mui/material";
+import { Box, Typography, Card, CardContent, Divider, Container } from "@mui/material";
 import { Work as WorkIcon } from "@mui/icons-material";
-
 
 const cardStyle = {
   flex: 1,
-  minWidth: 400,
+  minWidth: 300,
   borderRadius: 2,
   boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.6)",
   transition: "0.3s ease-in-out",
@@ -30,45 +27,31 @@ const titleStyle = {
 
 const WorkExp: React.FC = () => {
   return (
-    // <>
-    //   <Typography
-    //     variant="h4"
-    //     textAlign="center"
-    //     gutterBottom
-    //     sx={{
-    //       fontWeight: "bold",
-    //       color: "#ff5722",
-    //       fontSize: "45px",
-    //       mt: 6,
-    //       mb: 6,
-    //     }}
-    //   >
-    //     Work Experience
-    //   </Typography>
-<>
-      <Container maxWidth="xl" sx={{ mt: 8, mb: 8 }}>
-        <Typography
-          variant="h4"
-          textAlign="center"
-          sx={{
-            fontWeight: "bold",
-            color: "#ff5722",
-            fontFamily: "Raleway, sans-serif",
-            mb: 5,
-          }}
-        >
-          Work Experience
-        </Typography>
+    <Container maxWidth="xl" sx={{ mt: 8, mb: 8 }}>
+      <Typography
+        variant="h4"
+        textAlign="center"
+        sx={{
+          fontWeight: "bold",
+          color: "#ff5722",
+          fontFamily: "Raleway, sans-serif",
+          mb: 5,
+        }}
+      >
+        Work Experience
+      </Typography>
 
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "space-between",
-            gap: 3,
-            flexWrap: "wrap",
-          }}
-        >
-          {/* Experience Card 1 */}
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: { xs: "column", sm: "row" },
+          justifyContent: "space-between",
+          gap: 3,
+          flexWrap: "wrap",
+        }}
+      >
+        {/* Experience Card 1 */}
+        <Box sx={{ flex: 1, minWidth: "300px" }}>
           <Card sx={cardStyle}>
             <CardContent>
               <Typography variant="h6" textAlign="center" sx={titleStyle}>
@@ -85,8 +68,10 @@ const WorkExp: React.FC = () => {
               </Typography>
             </CardContent>
           </Card>
+        </Box>
 
-          {/* Experience Card 2 */}
+        {/* Experience Card 2 */}
+        <Box sx={{ flex: 1, minWidth: "300px" }}>
           <Card sx={cardStyle}>
             <CardContent>
               <Typography variant="h6" textAlign="center" sx={titleStyle}>
@@ -103,8 +88,10 @@ const WorkExp: React.FC = () => {
               </Typography>
             </CardContent>
           </Card>
+        </Box>
 
-          {/* Experience Card 3 */}
+        {/* Experience Card 3 */}
+        <Box sx={{ flex: 1, minWidth: "300px" }}>
           <Card sx={cardStyle}>
             <CardContent>
               <Typography variant="h6" textAlign="center" sx={titleStyle}>
@@ -122,8 +109,8 @@ const WorkExp: React.FC = () => {
             </CardContent>
           </Card>
         </Box>
-      </Container>
-    </>
+      </Box>
+    </Container>
   );
 };
 

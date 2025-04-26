@@ -6,6 +6,8 @@ import {
   Stack,
   TextField,
   Typography,
+  useTheme,
+  useMediaQuery,
 } from "@mui/material";
 import { Controller, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -60,17 +62,19 @@ export default function ContactSection() {
 
   const onSubmit = (data: FormData) => {
     console.log("Form Data:", data);
-    // Add your API submission logic here
+    // API submission logic can go here
   };
 
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("md")); // for responsiveness
+
   return (
-    <Container maxWidth="lg">
+    <Container maxWidth="lg" sx={{ px: { xs: 2, sm: 4 }, py: 8 }}>
       <Box
-        my={10}
         display="flex"
         flexDirection={{ xs: "column", md: "row" }}
         justifyContent="center"
-        alignItems="flex-start"
+        alignItems="stretch"
         gap={5}
       >
         {/* Get In Touch Form */}
@@ -83,17 +87,16 @@ export default function ContactSection() {
         >
           <Paper
             sx={{
-              p: 3,
-              background:
-                "linear-gradient(135deg, rgb(109, 119, 146) 0%, rgb(116, 93, 93) 100%)",
+              p: { xs: 3, sm: 4 },
+              background: "linear-gradient(135deg, #6d7792 0%, #745d5d 100%)",
               borderRadius: "20px",
               color: "white",
+              height: "100%",
               boxShadow: 6,
-              maxWidth: "100%",
             }}
           >
             <Typography
-              variant="h4"
+              variant={isSmallScreen ? "h5" : "h4"}
               gutterBottom
               textAlign="center"
               fontWeight="bold"
@@ -178,9 +181,10 @@ export default function ContactSection() {
                 variant="contained"
                 fullWidth
                 sx={{
-                  mt: 2,
-                  backgroundColor: "#64b5f6",
+                  mt: 3,
+                  py: 1.5,
                   fontWeight: "bold",
+                  backgroundColor: "#64b5f6",
                   "&:hover": { backgroundColor: "#f50057" },
                 }}
               >
@@ -199,12 +203,14 @@ export default function ContactSection() {
           style={{ flex: 1 }}
         >
           <Paper
-            elevation={3}
             sx={{
-              borderRadius: "16px",
-              padding: "40px",
-              margin: "auto",
-              background: "#f3e5f5",
+              p: { xs: 3, sm: 4 },
+              background:
+                "linear-gradient(135deg,rgb(148, 161, 111) 0%,rgb(157, 212, 237) 100%)",
+              borderRadius: "20px",
+              color: "white",
+              height: "100%",
+              boxShadow: 8,
             }}
           >
             <motion.div
@@ -214,21 +220,18 @@ export default function ContactSection() {
               style={{
                 display: "flex",
                 flexDirection: "column",
-                alignItems: "center",
-                textAlign: "center",
+                gap: "20px",
               }}
             >
               {/* Title */}
               <motion.div variants={itemVariants}>
                 <Typography
-                  variant="h4"
-                  gutterBottom
+                  variant={isSmallScreen ? "h5" : "h4"}
                   fontWeight="bold"
-                  color="#000"
-                  mb={4}
                   sx={{
                     fontFamily: "Raleway, sans-serif",
                     letterSpacing: 1,
+                    textAlign: { xs: "center", md: "left" },
                   }}
                 >
                   Let’s Connect
@@ -239,24 +242,23 @@ export default function ContactSection() {
               <motion.div variants={itemVariants}>
                 <Stack
                   direction="row"
-                  alignItems="center"
                   spacing={2}
-                  mb={3}
-                  justifyContent="center"
+                  alignItems="center"
+                  justifyContent={isSmallScreen ? "center" : "flex-start"}
                 >
                   <Box
                     sx={{
                       backgroundColor: "#1976d2",
-                      color: "white",
                       p: 1,
                       borderRadius: "50%",
                       display: "flex",
                       alignItems: "center",
+                      justifyContent: "center",
                     }}
                   >
                     <PhoneIcon />
                   </Box>
-                  <Typography variant="body1" color="#000" fontWeight="bold">
+                  <Typography variant="body1" fontWeight="bold">
                     +91 9830312150
                   </Typography>
                 </Stack>
@@ -266,24 +268,23 @@ export default function ContactSection() {
               <motion.div variants={itemVariants}>
                 <Stack
                   direction="row"
-                  alignItems="center"
                   spacing={2}
-                  mb={3}
-                  justifyContent="center"
+                  alignItems="center"
+                  justifyContent={isSmallScreen ? "center" : "flex-start"}
                 >
                   <Box
                     sx={{
                       backgroundColor: "#1976d2",
-                      color: "white",
                       p: 1,
                       borderRadius: "50%",
                       display: "flex",
                       alignItems: "center",
+                      justifyContent: "center",
                     }}
                   >
                     <EmailIcon />
                   </Box>
-                  <Typography variant="body1" color="#000" fontWeight="bold">
+                  <Typography variant="body1" fontWeight="bold">
                     tanimateach1982@gmail.com
                   </Typography>
                 </Stack>
@@ -293,31 +294,31 @@ export default function ContactSection() {
               <motion.div variants={itemVariants}>
                 <Stack
                   direction="row"
-                  alignItems="center"
                   spacing={2}
-                  justifyContent="center"
+                  alignItems="center"
+                  justifyContent={isSmallScreen ? "center" : "flex-start"}
                 >
                   <Box
                     sx={{
                       backgroundColor: "#1976d2",
-                      color: "white",
                       p: 1,
                       borderRadius: "50%",
                       display: "flex",
                       alignItems: "center",
+                      justifyContent: "center",
                     }}
                   >
                     <LocationOnIcon />
                   </Box>
-                  <Typography variant="body1" color="#000" fontWeight="bold">
+                  <Typography variant="body1" fontWeight="bold">
                     Kolkata, West Bengal
                   </Typography>
                 </Stack>
               </motion.div>
 
-              {/* Download Button */}
+              {/* Download CV Button */}
               <motion.div variants={itemVariants}>
-                <Box mt={5}>
+                <Box mt={4} textAlign="center">
                   <Button
                     variant="contained"
                     startIcon={<DownloadIcon />}
