@@ -116,29 +116,42 @@
 //   );
 // }
 
-
-import About from '@/components/about'
-import Contact from '@/components/contact'
-import Footer from '@/components/footer'
-import Header from '@/components/header'
-import Hero from '@/components/hero'
-import Projects from '@/components/projects'
-import { SkillsSection } from '@/components/skillsection'
-import WorkExp from '@/components/workexp'
-
-
+import About from "@/components/about";
+import Contact from "@/components/contact";
+import Footer from "@/components/footer";
+import Header from "@/components/header";
+import Hero from "@/components/hero";
+import Projects from "@/components/projects";
+import { SkillsSection } from "@/components/skillsection";
+import WorkExp from "@/components/workexp";
 
 export default function Home() {
   return (
     <>
-    <Header />
-      <div id="home"><Hero /></div>
-      <div id="about"><About /></div>
-      <div id="projects"><Projects /></div>
-      <div id="skills"><SkillsSection /></div>
-      <div id="workexp"><WorkExp /></div>
-      <div id="contact"><Contact /></div>
-      <Footer />
+      <>
+        <Header />
+        <main style={{ padding: "0 1rem" }}>
+          <div id="home">
+            <Hero />
+          </div>
+          <div id="about">
+            <About />
+          </div>
+          <div id="projects">
+            <Projects />
+          </div>
+          <div id="skills">
+            <SkillsSection />
+          </div>
+          <div id="workexp">
+            <WorkExp />
+          </div>
+          <div id="contact">
+            <Contact />
+          </div>
+        </main>
+        <Footer />
+      </>
     </>
-  )
+  );
 }
