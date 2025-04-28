@@ -1,4 +1,4 @@
-import { Typography, Box } from "@mui/material";
+import { Typography, Box, useMediaQuery } from "@mui/material";
 import { motion } from "framer-motion";
 
 const container = {
@@ -23,21 +23,25 @@ const child = {
 };
 
 const Hero = () => {
-  const intro = "Hi! I am Tanima, a Frontend Developer";
+  const isMobile = useMediaQuery("(max-width:600px)"); // ✅ detect mobile
+
+  const intro = isMobile
+    ? ["Hi! I am Tanima", "a Frontend Developer"] // ✅ two lines for mobile
+    : ["Hi! I am Tanima, a Frontend Developer"]; // ✅ one line for desktop
 
   return (
-      <Box
-        mt={8}
-        mb={4}
-        sx={{
-          display: "flex",           // ✅
-          flexDirection: "column",   // ✅
-          alignItems: "center",       // ✅
-          justifyContent: "center",  // ✅
-          textAlign: "center",        // ✅
-          px: 2,                     // ✅ Responsive padding
-        }}
-      >
+    <Box
+      mt={8}
+      mb={4}
+      sx={{
+        display: "flex", // ✅
+        flexDirection: "column", // ✅
+        alignItems: "center", // ✅
+        justifyContent: "center", // ✅
+        textAlign: "center", // ✅
+        px: 2, // ✅ Responsive padding
+      }}
+    >
       <motion.div
         variants={container}
         initial="hidden"
@@ -48,19 +52,24 @@ const Hero = () => {
           justifyContent: "center",
         }}
       >
-        {intro.split("").map((char, index) => (
-          <motion.span
-            key={index}
-            variants={child}
-            style={{
-              fontSize: "clamp(1.5rem, 5vw, 3rem)", // ✅ responsive font size
-              fontFamily: "'Dancing Script', cursive",
-              marginRight: char === " " ? "0.5rem" : 0,
-              wordBreak: "break-word",
-            }}
-          >
-            {char}
-          </motion.span>
+        {intro.map((line, lineIndex) => (
+          <Box key={lineIndex} component="div" sx={{ display: "inline" }}>
+            {line.split("").map((char, index) => (
+              <motion.span
+                key={index}
+                variants={child}
+                style={{
+                  fontSize: "clamp(1.5rem, 5vw, 3rem)",
+                  fontFamily: "'Dancing Script', cursive",
+                  marginRight: char === " " ? "0.5rem" : 0,
+                  wordBreak: "break-word",
+                }}
+              >
+                {char}
+              </motion.span>
+            ))}
+            {lineIndex !== intro.length - 1 && <br />} {/* ✅ add line break */}
+          </Box>
         ))}
       </motion.div>
 

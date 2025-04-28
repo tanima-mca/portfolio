@@ -659,7 +659,7 @@ export default function ContactSection() {
                   },
                 }}
                 aria-label="Download CV"
-                href="/my_resume/cv_of_Tanima_new.pdf"
+                href="/my_resume/cv_of_Tanima_Bhattacharyya.pdf"
                 download
               >
                 Download CV
