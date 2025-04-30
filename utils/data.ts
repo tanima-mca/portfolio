@@ -89,7 +89,7 @@
     { id: 8, title: "Photoshop", icon: "/images/photoshop.svg" },
     { id: 9, title: "Illustrator", icon: "/images/illustrator.png" },
     { id: 10, title: "Adobe XD", icon: "/images/xd.png" },
-    { id: 11, title: "MySQL", icon: "/images/mysql.png" },
+    // { id: 11, title: "MySQL", icon: "/images/mysql.png" },
   ];
   
 
