@@ -57,24 +57,24 @@
   export const projectData = [
     {
       id: 1,
-      title: "A pure Matrix Caculator App build with Nextjs ,typescript and MUI", // Add this
-      description: "A brief overview of the project.", // Add this
-      image: "/images/matrixcal.png",
-      Live_link: "https://app-calculator-neww.vercel.app/",
+      title: "A Book Website Built with Next.js, TypeScript, MUI, and MySQL", // Add this
+      description: "A full-stack Book Management web application featuring robust login and authentication using Prisma and MySQL. Includes complete CRUD operations for books, authors, and user profiles. The frontend is developed with Next.js, TypeScript, and MUI for a responsive, modern UI.", // Add this
+      image: "/images/bookimg.png",
+      Live_link: "https://github.com/tanima-mca/my_book_app",
     },
     {
       id: 2,
-      title: "An Advance Expense Tracker build with Nextjs,typescript and MUI",
-      description: "A brief overview of the project.",
+      title: "AAn Advanced Expense Tracker Built with Next.js, TypeScript, and MUI",
+      description: "A modern expense tracking application that allows users to manage their personal finances efficiently. Built with Next.js, TypeScript, and Material UI (MUI) for a responsive and user-friendly interface. Features include dynamic chart visualization, categorized expenses, real-time updates, and budget monitoring.",
       image: "/images/expensetracker.jpg",
       Live_link: "https://expense-tracker-lemon-psi.vercel.app/",
     },
     {
       id: 3,
       title: "A Beauty-Product App build with Nextjs,tanstck query,typescript and Zustand",
-      description: "Authentication made with zustand,user can add,update and delete products.",
+      description: "A feature-rich beauty product management app with user authentication powered by Zustand. Users can seamlessly add, update, and delete products. The app leverages TanStack Query for efficient data fetching and caching, ensuring a smooth and responsive experience.",
       image: "/images/beautyproduct.jpg",
-      Live_link: "https://expense-tracker-lemon-psi.vercel.app/",
+      Live_link: "https://github.com/tanima-mca/next_tanstack_app",
     },
   ];
   

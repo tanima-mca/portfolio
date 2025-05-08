@@ -62,6 +62,13 @@ const experiences = [
     description:
       "Developed interactive web apps using Adv JS, React JS, Next JS, with Redux & Zustand.",
   },
+  {
+    id: 3,
+    title: "React.js Internship - Primetech Systems and Solutions",
+    duration: "4 months",
+    description:
+      "Developed interactive dashboard using  React JS, Next JS,Typescript, MYSQL with Redux & Zustand.",
+  },
 ];
 
 const WorkExp: React.FC = () => {
